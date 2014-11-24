@@ -1,0 +1,26 @@
+{
+  "name": "devfactory/variables",
+  "description": "Laravel package to allow site owners to override a specific config files' variables",
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "DevFactory",
+      "email": "developer@devfactory.ch"
+    }
+  ],
+  "require": {
+    "php": ">=5.4.0",
+    "illuminate/support": "4.1.*"
+  },
+  "autoload": {
+    "psr-4": {
+      "Devfactory\\Variables\\": "src/"
+    }
+  },
+  "extra": {
+    "branch-alias": {
+      "dev-master": "1.0.x-dev"
+    }
+  },
+  "minimum-stability": "stable"
+}
