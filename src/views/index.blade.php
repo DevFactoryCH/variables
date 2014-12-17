@@ -9,7 +9,7 @@
 
   <div class="row">
 
-    <div class="col-md-8">
+    <div class="col-lg-8">
 
       <div class="box">
 
@@ -19,25 +19,24 @@
 
            <table class="table table-hover">
 
-            <tbody>
+            <thead>
               <tr>
                 <th>@lang('variables::variables.table_key')</th>
                 <th>@lang('variables::variables.table_value')</th>
               </tr>
-            </tbody>
+            </thead>
 
             <tbody>
 
               @foreach ($variables as $key => $variable)
                 <tr>
-                  <td>
-                    {{ Form::label($key, trans('variables.' . $key), array('class' => 'col-sm-3 control-label no-padding-rightx')) }}
+                  <td class="col-sm-3 text-right">
+                    {{ Form::label($key, trans('variables.' . $key), array('class' => 'control-label')) }}
                   </td>
                   <td>
                     {{ Form::text($key, $variable['value'], array('class' => 'form-control')) }}
                   </td>
                 </tr>
-
               @endforeach
 
             </tbody>
@@ -48,7 +47,7 @@
 
         <div class="box-footer clearfix">
           {{ Variables::get("test") }}
-          {{ Form::submit(trans('variables.save'), array('class' => 'btn btn-primary')) }}
+          {{ Form::submit(trans('variables::variables.save'), array('class' => 'btn btn-primary')) }}
         </div>
 
         {{ Form::close(); }}
