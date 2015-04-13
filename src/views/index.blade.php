@@ -13,7 +13,7 @@
 
       <div class="box">
 
-        {{ Form::open(array('url' => $edit_url, 'class' => 'form-horizontal')) }}
+        {!! Form::open(array('url' => $edit_url, 'class' => 'form-horizontal')) !!}
 
         <div class="box-body table-responsive no-padding">
 
@@ -31,10 +31,10 @@
               @foreach ($variables as $key => $variable)
                 <tr>
                   <td class="col-sm-3 text-right">
-                    {{ Form::label($key, trans('variables.' . $key), array('class' => 'control-label')) }}
+                    {!! Form::label($key, trans('variables.' . $key), array('class' => 'control-label')) !!}
                   </td>
                   <td>
-                    {{ Form::text($key, $variable['value'], array('class' => 'form-control')) }}
+                    {!! Form::text($key, $variable['value'], array('class' => 'form-control')) !!}
                   </td>
                 </tr>
               @endforeach
@@ -46,11 +46,11 @@
         </div>
 
         <div class="box-footer clearfix">
-          {{ Variables::get("test") }}
-          {{ Form::submit(trans('variables::variables.save'), array('class' => 'btn btn-primary')) }}
+          {!! Variables::get("test") !!}
+          {!! Form::submit(trans('variables::variables.save'), array('class' => 'btn btn-primary')) !!}
         </div>
 
-        {{ Form::close(); }}
+        {!! Form::close() !!}
 
       </div>
 

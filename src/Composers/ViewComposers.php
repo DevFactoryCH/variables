@@ -1,17 +1,15 @@
 <?php namespace Devfactory\Variables\Composers;
 
-use Config;
-
 class VariablesComposer {
 
-    public function compose($view) {
-      $layout = (object) [
-        'extends' => Config::get('variables::config.layout.extends'),
-        'header' => Config::get('variables::config.layout.header'),
-        'content' => Config::get('variables::config.layout.content'),
-      ];
+  public function compose($view) {
+    $layout = (object) [
+      'extends' => config('variables.config.layout.extends'),
+      'header' => config('variables.config.layout.header'),
+      'content' => config('variables.config.layout.content'),
+    ];
 
-      $view->with(['layout' => $layout]);
-    }
+    $view->with(['layout' => $layout]);
+  }
 
 }

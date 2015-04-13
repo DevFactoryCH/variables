@@ -20,7 +20,9 @@ class VariablesServiceProvider extends ServiceProvider {
 	 */
 	public function boot() {
     $this->loadViewsFrom(__DIR__ . '/views', 'variables');
+    $this->loadTranslationsFrom(__DIR__ . '/lang', 'variables');
 
+    $this->publishViews();
     $this->publishConfig();
     $this->publishMigration();
 	}
@@ -51,6 +53,15 @@ class VariablesServiceProvider extends ServiceProvider {
 	public function provides() {
 		return array('variables');
 	}
+
+  /**
+   * Publish the package views
+   */
+  protected function publishViews() {
+    $this->publishes([
+        __DIR__ . '/views' => base_path('resources/views/vendor/variables'),
+    ]);
+  }
 
   /**
    * Publish the package configuration
