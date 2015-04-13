@@ -1,3 +1,7 @@
+[![Laravel](https://img.shields.io/badge/Laravel-4.0-orange.svg?style=flat-square)](http://laravel.com)
+[![Laravel](https://img.shields.io/badge/Laravel-5.0-orange.svg?style=flat-square)](http://laravel.com)
+[![License](http://img.shields.io/badge/license-MIT-brightgreen.svg?style=flat-square)](https://tldrlegal.com/license/mit-license)
+
 #Variables
 
 This is a package for the Laravel framework, it allows for a specified set of variables to be overridden in the database by the user of the site
@@ -39,7 +43,7 @@ You have to add the Controller to your routes.php, so that you can set your own 
 
 ```php
 Route::group(array('before' => 'admin-auth'), function() {
-  Route::controller('variables', 'Devfactory\Variables\Controllers\VariablesController');
+  Route::controller('variables', '\Devfactory\Variables\Controllers\VariablesController');
 });
 ```
 
