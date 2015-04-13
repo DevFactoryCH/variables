@@ -30,7 +30,8 @@ class VariablesController extends BaseController {
   public function getIndex() {
     $variables = Variables::getAll();
 
-    $edit_url = URL::action(get_class($this) . '@postUpdate');
+    URL::setRootControllerNamespace('\Devfactory\Variables\Controllers');
+    $edit_url = action('VariablesController@postUpdate');
 
     return View::make('variables::index', compact('variables', 'edit_url'));
   }

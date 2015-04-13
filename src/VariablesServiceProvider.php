@@ -19,6 +19,8 @@ class VariablesServiceProvider extends ServiceProvider {
 	 * @return void
 	 */
 	public function boot() {
+    $this->loadViewsFrom(__DIR__ . '/views', 'variables');
+
     $this->publishConfig();
     $this->publishMigration();
 	}
