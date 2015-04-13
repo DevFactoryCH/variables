@@ -9,7 +9,9 @@ use View;
 
 use \Variables;
 
-class VariablesController extends \BaseController {
+use Illuminate\Routing\Controller as BaseController;
+
+class VariablesController extends BaseController {
 
   /**
    * Initializer.
