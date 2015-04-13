@@ -60,7 +60,7 @@ class VariablesServiceProvider extends ServiceProvider {
   protected function publishViews() {
     $this->publishes([
         __DIR__ . '/views' => base_path('resources/views/vendor/variables'),
-    ]);
+    ], 'views');
   }
 
   /**
@@ -70,7 +70,7 @@ class VariablesServiceProvider extends ServiceProvider {
     $this->publishes([
       __DIR__ . '/config/config.php' => config_path('variables.config.php'),
       __DIR__ . '/config/variables.php' => config_path('variables.list.php'),
-    ]);
+    ], 'config');
   }
 
   /**
@@ -79,7 +79,7 @@ class VariablesServiceProvider extends ServiceProvider {
   protected function publishMigration() {
     $this->publishes([
       __DIR__ . '/migrations' => base_path('database/migrations')
-    ]);
+    ], 'migrations');
   }
 
 }

@@ -50,7 +50,9 @@ class VariablesController extends BaseController {
       }
     }
 
-    return Redirect::to(URL::action(get_class($this) . '@getIndex'));
+    URL::setRootControllerNamespace('\Devfactory\Variables\Controllers');
+
+    return Redirect::to(action('VariablesController@getIndex'));
   }
 
 }
