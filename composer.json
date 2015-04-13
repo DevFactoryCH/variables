@@ -10,7 +10,7 @@
   ],
   "require": {
     "php": ">=5.4.0",
-    "illuminate/support": "4.*"
+    "illuminate/support": "5.*"
   },
   "require-dev": {
     "mockery/mockery": "dev-master@dev",
@@ -22,11 +22,6 @@
     ],
     "psr-4": {
       "Devfactory\\Variables\\": "src/"
-    }
-  },
-  "extra": {
-    "branch-alias": {
-      "dev-master": "1.0.x-dev"
     }
   },
   "minimum-stability": "stable"
