@@ -30,8 +30,10 @@ class VariablesServiceProvider extends ServiceProvider {
 	 */
 	public function register() {
     $this->mergeConfigFrom(
-      __DIR__ . '/config/config.php', 'variables.config',
-      __DIR__ . '/config/variables.php', 'variables.list',
+      __DIR__ . '/config/config.php', 'variables.config'
+    );
+    $this->mergeConfigFrom(
+      __DIR__ . '/config/variables.php', 'variables.list'
     );
 
     $this->app->bindShared('variables', function ($app) {
