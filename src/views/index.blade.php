@@ -11,7 +11,7 @@
 
     <div class="col-lg-8">
 
-      <div class="box">
+      <div class="box box-primary">
 
         {!! Form::open(array('url' => $edit_url, 'class' => 'form-horizontal')) !!}
 
@@ -46,7 +46,6 @@
         </div>
 
         <div class="box-footer clearfix">
-          {!! Variables::get("test") !!}
           {!! Form::submit(trans('variables::variables.save'), array('class' => 'btn btn-primary')) !!}
         </div>
 
