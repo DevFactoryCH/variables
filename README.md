@@ -4,6 +4,47 @@ This is a package for the Laravel framework, it allows for a specified set of va
 
 ## Installation
 
+### Laravel 5
+
+Using Composer, edit your `composer.json` file to require `devfactory/media`.
+
+    "require": {
+      "devfactory/variables": "2.0.*"
+    }
+
+Then from the terminal run
+
+    composer update
+
+Then in your `app/config/app.php` file register the service provider:
+
+```php
+'Devfactory\Variables\VariablesServiceProvider',
+```
+and the Facade:
+
+```php
+'Variables' => 'Devfactory\Variables\Facades\VariablesFacade',
+```
+
+From within the the laravel folder of your project, run:
+
+    php artisan vendor:publish
+
+Run the migration to create the DB table:
+
+    php artisan migrate
+
+You have to add the Controller to your routes.php, so that you can set your own url/filters.
+
+```php
+Route::group(array('before' => 'admin-auth'), function() {
+  Route::controller('variables', 'Devfactory\Variables\Controllers\VariablesController');
+});
+```
+
+### Laravel 4
+
 Using Composer, edit your `composer.json` file to require `devfactory/media`.
 
     "require": {
@@ -16,11 +57,15 @@ Then from the terminal run
 
 Then in your `app/config/app.php` file register the service provider:
 
-    'Devfactory\Variables\VariablesServiceProvider'
+```php
+    'Devfactory\Variables\VariablesServiceProvider',
+```
 
 and the Facade:
 
-    'Variables'       => 'Devfactory\Variables\Facades\VariablesFacade',
+```php
+    'Variables' => 'Devfactory\Variables\Facades\VariablesFacade',
+```
 
 Run the migration to create the DB table:
 
@@ -32,9 +77,11 @@ Finally, publish the config to make changes to where and how the files are store
 
 You have to add the Controller to your routes.php, so that you can set your own url/filters.
 
+```php
     Route::group(array('before' => 'admin-auth'), function() {
         Route::controller('variables', 'Devfactory\Variables\Controllers\VariablesController');
     });
+```
 
 ## Usage
 
