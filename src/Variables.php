@@ -53,7 +53,7 @@ class Variables {
    *  The value of the variable
    */
   private function getValue($force_config_file = FALSE) {
-    $variable_config = Config::get('variables::variables.' . $this->key);
+    $variable_config = config('variables.list.' . $this->key);
 
     if ($force_config_file) {
       return $variable_config['value'];
@@ -76,7 +76,7 @@ class Variables {
    *  An array of all the Variables with value other fields from config file
    */
   public function getAll() {
-    $variables = Config::get('variables::variables');
+    $variables = config('variables.list');
 
     foreach ($variables as $key => &$variable) {
       $variable_db = Variable::where('key', '=', $key)->first();
@@ -138,7 +138,7 @@ class Variables {
    *  TRUE if the variable has been created, otherwise FALSE
    */
   private function createVariable() {
-    $variable_config = Config::get('variables::variables.' . $this->key);
+    $variable_config = config('variables.list.' . $this->key);
 
     // Value is same as config, so don't create
     if ($this->value == $variable_config['value']) {
@@ -164,7 +164,7 @@ class Variables {
    *  TRUE id the variable was updated, otherwise FALSE
    */
   private function updateVariable($variable) {
-    $variable_config = Config::get('variables::variables.' . $this->key);
+    $variable_config = config('variables.list.' . $this->key);
 
     // New value is same as config, so delete
     if ($this->value == $variable_config['value']) {
@@ -203,7 +203,7 @@ class Variables {
    *  TRUE if found, otherwise FALSE
    */
   private function keyExists() {
-    if (is_null(Config::get('variables::variables.' . $this->key))) {
+    if (is_null(config('variables.list.' . $this->key))) {
       return FALSE;
     }
 
