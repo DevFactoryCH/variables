@@ -19,8 +19,6 @@ class VariablesController extends BaseController {
    * @return void
    */
   public function __construct() {
-    parent::__construct();
-
     View::composer('variables::*', 'Devfactory\Variables\Composers\VariablesComposer');
   }
 
