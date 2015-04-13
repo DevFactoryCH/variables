@@ -2,6 +2,8 @@
 
 use Illuminate\Support\ServiceProvider;
 
+use Devfactory\Variables\Models\Variable;
+
 class VariablesServiceProvider extends ServiceProvider {
 
 	/**
@@ -17,7 +19,8 @@ class VariablesServiceProvider extends ServiceProvider {
 	 * @return void
 	 */
 	public function boot() {
-		$this->package('devfactory/variables', 'variables', __DIR__);
+    $this->publishConfig();
+    $this->publishMigration();
 	}
 
 	/**
@@ -26,8 +29,13 @@ class VariablesServiceProvider extends ServiceProvider {
 	 * @return void
 	 */
 	public function register() {
-    $this->app['variables'] = $this->app->share(function($app) {
-      return new Variables;
+    $this->mergeConfigFrom(
+      __DIR__ . '/config/config.php', 'variables.config',
+      __DIR__ . '/config/variables.php', 'variables.list',
+    );
+
+    $this->app->bindShared('variables', function ($app) {
+      return new Variables(new Variable());
     });
 	}
 
@@ -39,5 +47,24 @@ class VariablesServiceProvider extends ServiceProvider {
 	public function provides() {
 		return array('variables');
 	}
+
+  /**
+   * Publish the package configuration
+   */
+  protected function publishConfig() {
+    $this->publishes([
+      __DIR__ . '/config/config.php' => config_path('variables.config.php'),
+      __DIR__ . '/config/variables.php' => config_path('variables.list.php'),
+    ]);
+  }
+
+  /**
+   * Publish the migration stub
+   */
+  protected function publishMigration() {
+    $this->publishes([
+      __DIR__ . '/migrations' => base_path('database/migrations')
+    ]);
+  }
 
 }

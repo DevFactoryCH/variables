@@ -11,6 +11,13 @@ class Variables {
 
   protected $value;
 
+  protected $variable;
+
+  public function __construct(Variable $variable) {
+    // Inject required Models
+    $this->variable = $variable;
+  }
+
   /**
    * Retrieve one of the variables, taking the value from the DB if it is
    * overridden, otherwise it will take the value from the config file
