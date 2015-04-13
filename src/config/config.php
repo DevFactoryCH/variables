@@ -2,7 +2,7 @@
 
 return array(
   'layout' => [
-    'extends' => 'layouts.admin',
+    'extends' => 'admin',
     'header' => 'header',
     'content' => 'content',
   ],
