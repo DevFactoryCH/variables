@@ -19,9 +19,14 @@ class VariablesController extends BaseController {
    * @return void
    */
   public function __construct() {
-    View::composer('variables::*', 'Devfactory\Variables\Composers\VariablesComposer');
-  }
+    $layout = (object) [
+      'extends' => config('variables.config.layout.extends'),
+      'header' => config('variables.config.layout.header'),
+      'content' => config('variables.config.layout.content'),
+    ];
 
+    View::share('layout', $layout);
+  }
   /**
    * Show a list of all the variables.
    *
