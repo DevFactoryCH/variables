@@ -35,8 +35,7 @@ class VariablesController extends BaseController {
   public function getIndex() {
     $variables = Variables::getAll();
 
-    URL::setRootControllerNamespace('\Devfactory\Variables\Controllers');
-    $edit_url = action('VariablesController@postUpdate');
+    $edit_url = action('\Devfactory\Variables\Controllers\VariablesController@postUpdate');
 
     return View::make('variables::index', compact('variables', 'edit_url'));
   }
@@ -55,9 +54,7 @@ class VariablesController extends BaseController {
       }
     }
 
-    URL::setRootControllerNamespace('\Devfactory\Variables\Controllers');
-
-    return Redirect::to(action('VariablesController@getIndex'));
+    return Redirect::to(action('\Devfactory\Variables\Controllers\VariablesController@getIndex'));
   }
 
 }
