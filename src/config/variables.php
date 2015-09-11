@@ -19,8 +19,5 @@
  */
 
 return array(
-  'example' => array(
-    'value' => 'Example data!',
-    'translation_key' => 'variables.example',
-  ),
+
 );
