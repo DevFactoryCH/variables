@@ -40,7 +40,7 @@ class VariablesServiceProvider extends ServiceProvider {
       __DIR__ . '/config/variables.php', 'variables.list'
     );
 
-    $this->app->bindShared('variables', function ($app) {
+    $this->app->singleton('variables', function ($app) {
       return new Variables(new Variable());
     });
 	}
